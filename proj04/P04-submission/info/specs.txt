@@ -1,0 +1,51 @@
+Project 4: Driving a Coding Agent
+Due: Tuesday 11:59 pm
+Last week you built the loop. This week you hire it. Keep building the harness you wrote in Project 3 and turn it into a coding agent: give it standing rules, skills, and hooks, then hand it a coding job and steer. You write no harness code yourself. Every change to harness.py is a prompt to the LiteLLM chat in VS Code, as in Project 3, and your agent runs on external/haiku-5-5 through the course gateway.
+
+Instructions
+Run the setup wizard or the setup guide first.
+
+systemprompt.md should now have multiple points for your instruction to follow. Change one thing: the two placeholder lines under Your rules, each written like the Constraints, "Never ..." or "Ask before ...", for something that went wrong last week. Feel free to adjust these lines to whatever works best for your agent.
+Similarly to Project 3, the system prompt should be loaded with every user message.
+Wire in the provided skill files. Each SKILL.md opens with two lines: name, and description, which says when to use the skill. Manually reach each skill file, then alter your harness to load skills from skills/<name>/SKILL.md. Prompt the LiteLLM Chat:
+
+"Read harness.py. At startup, have it read every skills/*/SKILL.md and keep each one's name and description lines in the context. Change nothing else."
+"Read harness.py. On each user message, if it matches a skill's description line, add that skill's full text to the context for that turn only. Change nothing else."
+Check it: restart and ask your harness "what skills do you have". It should respond with plan-mode and coding-loop.
+In Project 3, we introduced user confirmation before the agent executes a file – that’s a hook! Hooks are like breakpoints, and can be used deterministically to trigger processes. This is especially useful when something should happen every time, whether or not your model thinks of it!
+
+Add the ‘PreToolUse’ to your harness from the referenced pseudocode. This allows your harness to check for user approval before using a tool. We can specify which tools this hook will apply to; in the pseudocode, PreToolUse will be applied to the “write_file” tool. When the agent wants to write a file, the harness lets it only if you typed approve as your last message, except that writing PLAN.md or profile.json is always allowed.
+Validate your hook: ask your harness to create a temporary new file. It says "waiting for approval" and creates nothing; type approve, and the file appears.
+Add a second hook, PostToolUse, to give the coding-loop skill a way to test what it writes. Refer to the pseudocode: after a write_file, if the project provides a CHECK file, the hook runs the command in it and puts the output in the context. The pseudocode's if statement matters: the tests runs only after a write, and only when the project says what the test is; the model never decides whether to test. In Project 4, CHECK holds python pedia.py score.
+Now put it all together. Have your agent build pedia.py, a local search engine for Wikipedia articles in articles/.
+
+Send: "Read SPEC.md and build pedia.py to it. Standard library only." SPEC.md includes a few open-ended questions for the user, which should trigger the harness to execute plan mode. Answer the questions and approve once finished. This then should trigger the coding loop skill.
+Once your agent finishes, try it out: Run pedia.py search with something you have wondered about this week, then pedia.py score to perform a search test.
+Turnin
+By Tuesday 11:59 pm:
+
+In VS Code, open the Command Palette (Cmd+Shift+P on Mac or Ctrl+Shift+P on Windows) and run CSE 490: Package for turn-in. The zip carries harness.py, systemprompt.md, PLAN.md, profile.json, the skills/ folder, pedia.py, tests/, transcript.md and your logs, and leaves out .env.
+Upload P04-submission.zip to the Project 4 assignment in Canvas and submit.
+Grading
+A model will autograde your submission. It reads your repository and checks that each step was properly followed, five checks, pass or fail, 20 points each. Rules: two rules of your own under Your rules, and your agent asked you before deleting the articles folder. Skills: harness.py reads every SKILL.md at startup and adds the full text only on a match. Plan: PLAN.md and your approve came before the first edit to pedia.py. Validation: pedia.py score passes on the public questions and on questions you cannot see, and a score run follows every write. Delegation: every file in pedia.py and tests/ came from a write_file call in transcript.md. It does not judge code style, prompt wording, or how many tries it took.
+
+Reference
+If you run out of model usage, use Qwen3.6 as a fallback: internal/Qwen3.6-35B-A3B costs nothing. Add this field to the JSON body of every request your harness sends, beside "model" and "messages": "extra_body": {"chat_template_kwargs": {"enable_thinking": false}}. Then set "model" to "internal/Qwen3.6-35B-A3B".
+
+User Approve Write Hook Pseudocode
+# approved = False
+#
+# after: user = input(">>> ")
+# approved = (user == "approve")
+#
+# before: result = run_tool(command, args)
+# if command == "write_file" and args["path"] not in ("PLAN.md", "profile.json"):
+# if not approved:
+# context.append("harness: waiting for approve")
+# continue
+
+Run Code Test Hook Pseudocode
+# after: result = run_tool(command, args)
+# if command == "write_file" and os.path.exists("CHECK"):
+# output = run(open("CHECK").read())
+# context.append("harness: " + output)

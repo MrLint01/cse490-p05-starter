@@ -1,0 +1,66 @@
+Project 4 setup guide
+This document sets up your computer for CSE490’s in-class projects. There are two ways to do it, and they end in the same place. Pick one.
+
+Option 1: the wizard (recommended)
+A small program that walks you through each step, with a picture of where to click, and checks each one on your computer. Download it once; every week it fetches that week’s project by itself. Requires Python 3.9+.
+Download wizard-cse490.zip. It lands in your Downloads folder.
+
+Mac
+Double-click the zip in Downloads to get the wizard folder. Then, in Terminal:
+cd ~/Downloads/wizard
+python3 wizard.py
+
+Windows
+Right-click the zip in Downloads, choose "Extract All", open the wizard folder it makes, and double-click SETUP-WINDOWS.bat. If the blue "Windows protected your PC" box appears: "More info", then "Run anyway".
+
+Option 2: by hand
+Read the section for your computer below (Mac, Windows or Linux) and do each step yourself. The steps are the same ones the wizard walks.
+
+Mac
+1. Project 4 folder
+Make your Project 4 folder as a copy of your Project 3 folder: copy the folder that holds harness.py and systemprompt.md, name the copy p04, and open the copy in VS Code (File, then Open Folder). Project 4 goes on in the copy, so this week's files replace copies and your Project 3 work stays as it was. If harness.py is gone, unzip your P03-submission.zip and move harness.py into the new folder. With no submission to go back to, the Project 3 starter (starter.zip) gives you the pseudocode harness to finish first.
+
+2. Project 4 files
+Download starter.zip and unzip it. Move everything inside the unpacked starter folder into your Project 4 folder, replacing systemprompt.md and the logs folder when asked: they are the copies from Project 3, and Project 3's own stay in its folder. On a Mac, Replace swaps the whole logs folder for the starter's, which holds only the switch file for Project 4; this week's chat log starts fresh there, and your Project 3 log stays in p03. On Windows and Linux only the switch file is replaced.
+
+3. Tidy the folder
+Make a folder named project3 inside your Project 4 folder and move Project 3's files into it: inventory.py, utils.py, test_utils.py and any other tests from Project 3, stats.py, stats.js, scores.csv, harness_testbench.md and the untangle folder. This week's files stay at the top: harness.py, systemprompt.md, .env, AGENTS.md, CLAUDE.md, the logs, skills, tests and articles folders, SPEC.md, CHECK and questions.csv. Delete nothing.
+
+4. Course key
+Your Project 4 folder holds .env with your course key, copied from Project 3. Open it and check that it still has these two lines:
+LITELLM_BASE_URL=https://llmproxy.cs.washington.edu
+LITELLM_API_KEY=<your key here>
+with your key in place of <your key here> (it starts with sk). If the file is missing or the key line is empty, make the file again: in VS Code, right-click the empty space in the Explorer, choose New File, name it exactly .env, and paste the two lines in.
+
+5. AI chat in VS Code
+In VS Code, click the Extensions icon in the bar on the far left: four squares. Or press Cmd+Shift+X.
+act: tap=icon
+Search for LiteLLM. Install "LiteLLM Provider for GitHub Copilot Chat" by Vivswan.
+act: type=search "LiteLLM" · tap=install
+ 
+
+Open the Command Palette with Cmd+Shift+P. Run "Preferences: Open User Settings (JSON)".
+act: tap=palette
+Add this entry inside the outer braces:
+"litellm-vscode-chat.servers": [
+{
+"label": "CSE 490",
+"baseUrl": "https://llmproxy.cs.washington.edu",
+"auth": { "apiKey": "<your key here>" }
+}
+]
+Replace <your key here> with your API key. Save the file.
+This week the AI answers in chat and you type every change yourself. Add this line beside the entry, with a comma between them, and save:
+"chat.agent.enabled": false
+Open the chat panel: the speech-bubble icon at the top, or Ctrl+Cmd+I. The model picker at the bottom of the chat box reads Auto. Leave it on Auto: that is the mode this project uses. Do not pick a model from the list. If the picker asks you to sign in to GitHub first, sign in.
+ 
+
+
+6. Harness check
+In VS Code, choose Terminal, then New Terminal. It opens in your Project 4 folder.
+act: tap=item
+Run:
+python3 harness.py
+It waits for your first message. If it stops with an error before that, read the last line of the error: a missing package names itself, and an "invalid key" means .env is wrong (the Course key step puts it right).
+Type my name is Sam and press Enter. Then type spell my name backwards and press Enter. A reply with maS means the harness keeps the conversation between turns. A reply that does not know the name means it sends only the latest message: go back to the chatbot loop in the Reference of the Project 3 handout.
+Type read SPEC.md and tell me what it says, and press Enter. A reply that quotes the file means the read tool from Project 3 is there. Press Ctrl+C to stop the harness.

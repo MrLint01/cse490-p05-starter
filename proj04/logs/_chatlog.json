@@ -1,0 +1,27 @@
+{
+ "project": "p04",
+ "port": 4404,
+ "turnin_name": "the Project 4 assignment",
+ "turnin_url": "https://canvas.uw.edu/courses/1916846/assignments/11858811",
+ "inlets": {
+  "files": {
+   "readers": [
+    "vscode-chat",
+    "claude-code"
+   ]
+  }
+ },
+ "turnin": {
+  "required": [
+   "harness.py",
+   "systemprompt.md",
+   "PLAN.md",
+   "profile.json",
+   "skills/plan-mode/SKILL.md",
+   "skills/coding-loop/SKILL.md",
+   "pedia.py",
+   "transcript.md"
+  ],
+  "artifacts": false
+ }
+}

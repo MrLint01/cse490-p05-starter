@@ -1,0 +1,173 @@
+{
+ "about": "fingerprints of the starter files; the setup wizard compares the files in a project folder with these to say whether each one is current",
+ "files": {
+  "CHECK": {
+   "older": [
+    {
+     "commit": "362f974",
+     "published": "2026-10-21",
+     "sha256": "9754855a565486e31402303aab836dbfba22a7d1a26ad9bb186ceb4921fbbaa0"
+    }
+   ],
+   "sha256": "65589f9a620c41dc5c9b115a5af8ff36ba31156a2d9fe858d02711a1ca9292b7",
+   "source_modified": "2026-10-21"
+  },
+  "SPEC.md": {
+   "older": [
+    {
+     "commit": "12f9488",
+     "published": "2026-10-20",
+     "sha256": "a8ab4082d5585369ad045d370a6129f7e20a3dda171062eb403eb617fa506366"
+    },
+    {
+     "commit": "dbe47e7",
+     "published": "2026-10-19",
+     "sha256": "a07d4ac09cc2d4b93228176315764eb2712d7eddf897410007d18f251f0a4632"
+    },
+    {
+     "commit": "d80b996",
+     "published": "2026-10-19",
+     "sha256": "0cf36d996718b499e520b3d9875e9ee699aa12fd06af8f428e37e2d93582acca"
+    }
+   ],
+   "sha256": "7cd75b043e30a039f48a648fd90de11af78d5effcf6e22fbd6337ed77cf1c6a9",
+   "source_modified": "2026-10-22"
+  },
+  "articles/README.md": {
+   "older": [
+    {
+     "commit": "eb773ce",
+     "published": "2026-10-20",
+     "sha256": "cd5d60c7d9859e53410c5d76d114bc569fa2e77c1e488f1ad03094e37471aacb"
+    },
+    {
+     "commit": "dbe47e7",
+     "published": "2026-10-19",
+     "sha256": "f621b0958dbf3dc0109b830af8a244aaaa771159a8144a3811f796a74c2fc19a"
+    }
+   ],
+   "sha256": "d2866873f0e8708bdaf152cc45857eccb575f5d0892083f338228d974b979c89",
+   "source_modified": "2026-10-21"
+  },
+  "articles/all.jsonl.gz": {
+   "older": [],
+   "sha256": "6cfea9f1ef2fafa1b62968556e7d6440450755af98a44f886f3c0f0cb9f4d902",
+   "source_modified": "2026-10-21"
+  },
+  "logs/_chatlog.json": {
+   "older": [
+    {
+     "commit": "dbe47e7",
+     "published": "2026-10-19",
+     "sha256": "26f6a956a9f9223c7e48acaa555f01b14a171b513659cc9a025d8d14a3212143"
+    },
+    {
+     "commit": "d80b996",
+     "published": "2026-10-19",
+     "sha256": "eef158b55b342d0999ae55e8a529f79f34e61a155afb9884027daa6c32bbfad1"
+    }
+   ],
+   "sha256": "a0cdac797d5ca2c126ed4462a4241c167ee95eed26bd33a46206d7c68e6a042f",
+   "source_modified": "2026-10-20"
+  },
+  "questions.csv": {
+   "older": [],
+   "sha256": "0b598fbe7edaeb5033e5dd4c1b4e2a6592f0a1dfbdc9daaddb78b727684927ae",
+   "source_modified": "2026-10-19"
+  },
+  "skills/coding-loop/SKILL.md": {
+   "older": [
+    {
+     "commit": "9da4d35",
+     "published": "2026-10-21",
+     "sha256": "f11b98bcfc2bce8d44bb266a1729979209f94991b3fc47e86334c260bf587225"
+    },
+    {
+     "commit": "790da3c",
+     "published": "2026-10-21",
+     "sha256": "5ef64a2978835ef1f0459ca5028c847171e92c74672f5000f7755bc5a922737e"
+    },
+    {
+     "commit": "362f974",
+     "published": "2026-10-21",
+     "sha256": "c46c71a3993802b0606519c353e99aa84bd05140feaa23bfda6dd9350cb1f604"
+    },
+    {
+     "commit": "12f9488",
+     "published": "2026-10-20",
+     "sha256": "8e377874373041587d4a6684d2762a7a5fd5e316fb31fe8e397d33f0b6336d58"
+    },
+    {
+     "commit": "eb773ce",
+     "published": "2026-10-20",
+     "sha256": "1499dc5355e49a15bcf10fe3020375e6b8a8d727a2b31f3c75b3785e4bad2ca2"
+    },
+    {
+     "commit": "eac273d",
+     "published": "2026-10-20",
+     "sha256": "76639c4551c39816ce5dfaf39b8bcfb86b1c4e5a4c5aa808dfe6be807c763713"
+    },
+    {
+     "commit": "dbe47e7",
+     "published": "2026-10-19",
+     "sha256": "66bf10da8c04348939ceef5902c1cbe26c129f4b670adbec0983197a0d0bbba5"
+    },
+    {
+     "commit": "d80b996",
+     "published": "2026-10-19",
+     "sha256": "30bf8bac23fe28e7a436ff504778ee728e99abaa0ddeb408301f1ed098ced394"
+    },
+    {
+     "commit": "d76ccae",
+     "published": "2026-10-12",
+     "sha256": "7211dde215973f0e79deced9a547d6c4d92c68d5e1eb5070d0a4ab555de32209"
+    }
+   ],
+   "sha256": "7befb90717757aef40eaebe103fad3cba34819a1818f6c87d28539e6d62be8fb",
+   "source_modified": "2026-10-21"
+  },
+  "skills/plan-mode/SKILL.md": {
+   "older": [
+    {
+     "commit": "dbe47e7",
+     "published": "2026-10-19",
+     "sha256": "7f0e08a8aae4116b0aa4f2b930075b03317193ae86c7c294c0ca3abf53c03889"
+    },
+    {
+     "commit": "d80b996",
+     "published": "2026-10-19",
+     "sha256": "bac87fa1b8e1de3458dd66cf65117e27a128ed5a9e778c62c98ef7c95221c4bd"
+    }
+   ],
+   "sha256": "9511f981a120a87de49d202e133bd62d4cd731d26381e963cdb4cc3ad44e631e",
+   "source_modified": "2026-10-21"
+  },
+  "systemprompt.md": {
+   "older": [
+    {
+     "commit": "dbe47e7",
+     "published": "2026-10-19",
+     "sha256": "78254354efde9eff7be91e65799b101b717ab202bc0cb00deaffd3191ba00b45"
+    },
+    {
+     "commit": "d80b996",
+     "published": "2026-10-19",
+     "sha256": "2ecd81d3bf54953b78b14ae044d33380932ade7abc7bd44a80caa33a8ffbe7fb"
+    },
+    {
+     "commit": "90b432e",
+     "published": "2026-10-13",
+     "sha256": "6c42f724aa04b7dfb3b6ffe6366833a315b0cc4d6635b660a2e22891ac1fb6ee"
+    }
+   ],
+   "sha256": "224d7e15047675470bc9c2c8b69704b90987ed3f74b958afeef34dd343426669",
+   "source_modified": "2026-10-21"
+  },
+  "tests/README.md": {
+   "older": [],
+   "sha256": "8bb41d10eb56b02d26cfbd71b5a64cbfad9df52dee084fdbe69df9f3651840ed",
+   "source_modified": "2026-10-21"
+  }
+ },
+ "project": "P04"
+}

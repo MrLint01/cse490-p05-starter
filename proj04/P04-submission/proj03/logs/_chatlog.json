@@ -1,0 +1,21 @@
+{
+ "project": "p03",
+ "port": 4403,
+ "turnin_name": "the Project 3 assignment",
+ "turnin_url": "https://canvas.uw.edu/courses/1916846/assignments/11669941",
+ "inlets": {
+  "files": {
+   "readers": [
+    "vscode-chat",
+    "claude-code"
+   ]
+  }
+ },
+ "turnin": {
+  "required": [
+   "harness.py",
+   "hello_world.py"
+  ],
+  "artifacts": false
+ }
+}
